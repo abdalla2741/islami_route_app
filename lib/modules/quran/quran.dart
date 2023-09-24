@@ -152,6 +152,7 @@ class Quran extends StatelessWidget {
           child: ListView.builder(
               itemBuilder: Elsora,
           itemCount: suraNames.length,
+
           ),
         ),
       ],
@@ -160,8 +161,14 @@ class Quran extends StatelessWidget {
   Widget Elsora (BuildContext context , int index){
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context, QuranDetails.routeName);
+        Navigator.pushNamed(context, QuranDetails.routeName , arguments:QuranInfo(suraName: suraNames[index], suraNumber: "${index + 1}" ));
       },
         child: QuranItem(name: suraNames[index], number: "${index+1}")) ;
   }
+}
+
+class QuranInfo {
+  String suraName;
+  String suraNumber;
+  QuranInfo({required this.suraName ,  required this.suraNumber});
 }

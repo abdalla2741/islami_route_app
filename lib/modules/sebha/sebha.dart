@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:islami_route_app/modules/sebha/sebha_counter.dart';
+
 
 class Sebha extends StatelessWidget {
   const Sebha({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Sebha",
-        style: TextStyle(
-            color: Colors.black,
-            fontSize: 50,
-            fontWeight: FontWeight.bold
-        ),
+    var theme =Theme.of(context);
+    return  Center(
+      child: Column(
+        children: [
+          Image.asset("assets/images/sebha logo.png"),
+          SizedBox(height: 40,),
+          Text("عدد التسبيحات" , style: theme.textTheme.bodyMedium,),
+          SizedBox(height: 30,),
+          SebhaCounter(),
+        ],
       ),
     );
   }

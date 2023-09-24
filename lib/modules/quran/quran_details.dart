@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:islami_route_app/modules/quran/quran.dart';
 
-class QuranDetails extends StatelessWidget {
-  const QuranDetails({super.key});
+class QuranDetails extends StatefulWidget {
+  QuranDetails({super.key});
   static const String routeName = "quran_details";
+
+  @override
+  State<QuranDetails> createState() => _QuranDetailsState();
+}
+
+class _QuranDetailsState extends State<QuranDetails> {
+  String content = "";
+  List<String> allVerses = [];
+
   @override
   Widget build(BuildContext context) {
+    var arg = ModalRoute.of(context)?.settings.arguments as QuranInfo;
+    if(content.isEmpty) {
+      readFiles(arg.suraNumber);
+    }
     var theme = Theme.of(context);
     var mediaQuery = MediaQuery.of(context).size;
     return Container(
@@ -31,7 +46,7 @@ class QuranDetails extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Sura name" , style: theme.textTheme.bodyLarge) ,
+                    Text("سورة ${arg.suraName}" , style: theme.textTheme.bodyLarge) ,
                     Icon(Icons.play_circle, size: 32 , color: Colors.black,)
                   ],
                 ),
@@ -41,11 +56,28 @@ class QuranDetails extends StatelessWidget {
                   height: 10,
                   endIndent: 25,
                   indent: 25,
-                )
+                ),
+               Expanded(
+                 child: ListView.builder(itemBuilder: (context , index) =>
+                     Text(content ,
+                       style: theme.textTheme.bodySmall,
+                       textAlign: TextAlign.center,
+                     ),
+                 ),
+               ),
               ],
             ),
           ),
         ),
     );
+  }
+
+  readFiles(String index) async {
+   String text = await rootBundle.loadString("assets/files/${index}.txt");
+   content = text;
+
+       setState(() {
+   allVerses = content.split("\n");
+       });
   }
 }

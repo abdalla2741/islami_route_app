@@ -4,7 +4,7 @@ import 'package:islami_route_app/modules/quran/quran.dart';
 import 'package:islami_route_app/modules/radio/radio.dart';
 import 'package:islami_route_app/modules/sebha/sebha.dart';
 import 'package:islami_route_app/modules/settings/settings.dart';
-//47:54
+//01:21:00
 
 class HomeLayout extends StatefulWidget {
   HomeLayout({super.key});
@@ -36,7 +36,7 @@ class _HomeLayoutState extends State<HomeLayout> {
       ),
       child: Scaffold(
         appBar:AppBar(
-          title: const Text("Islami"),
+          title: const Text("إسلامي"),
         ),
         body: screens[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(

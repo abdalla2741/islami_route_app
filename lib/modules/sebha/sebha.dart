@@ -12,9 +12,9 @@ class Sebha extends StatelessWidget {
       child: Column(
         children: [
           Image.asset("assets/images/sebha logo.png"),
-          SizedBox(height: 40,),
+          const SizedBox(height: 40,),
           Text("عدد التسبيحات" , style: theme.textTheme.bodyMedium,),
-          SizedBox(height: 30,),
+          const SizedBox(height: 30,),
           SebhaCounter(),
         ],
       ),

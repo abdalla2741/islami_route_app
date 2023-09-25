@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_route_app/modules/quran/quran.dart';
-
+//sa3a w 9 d2ay2
 class QuranDetails extends StatefulWidget {
   QuranDetails({super.key});
   static const String routeName = "quran_details";
@@ -32,14 +32,16 @@ class _QuranDetailsState extends State<QuranDetails> {
         appBar:AppBar(
         title: const Text("إسلامي"),
     ),
-          body: Container(
-            padding: EdgeInsets.symmetric(horizontal: 15 , vertical: 40),
-            margin: EdgeInsets.only(left: 30 , right: 30 , bottom: 120 , top: 25),
+          body: content.isEmpty? const Center(
+            child: CircularProgressIndicator()
+          ) :Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15 , vertical: 40),
+            margin: const EdgeInsets.only(left: 30 , right: 30 , bottom: 120 , top: 25),
             width: mediaQuery.width,
             height: mediaQuery.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
-              color: Color(0xFFF8F8F8).withOpacity(0.8),
+              color: const Color(0xFFF8F8F8).withOpacity(0.8),
             ),
             child: Column(
               children: [
@@ -47,7 +49,7 @@ class _QuranDetailsState extends State<QuranDetails> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("سورة ${arg.suraName}" , style: theme.textTheme.bodyLarge) ,
-                    Icon(Icons.play_circle, size: 32 , color: Colors.black,)
+                    const Icon(Icons.play_circle, size: 32 , color: Colors.black,)
                   ],
                 ),
                 Divider(
@@ -59,10 +61,11 @@ class _QuranDetailsState extends State<QuranDetails> {
                 ),
                Expanded(
                  child: ListView.builder(itemBuilder: (context , index) =>
-                     Text(content ,
+                     Text("${content}",
                        style: theme.textTheme.bodySmall,
                        textAlign: TextAlign.center,
                      ),
+                   itemCount: 1,
                  ),
                ),
               ],
@@ -75,9 +78,12 @@ class _QuranDetailsState extends State<QuranDetails> {
   readFiles(String index) async {
    String text = await rootBundle.loadString("assets/files/${index}.txt");
    content = text;
+   allVerses = content.split("\n");
+   for(int i = 0 ; i<content.length ; i++){
+
+   }
 
        setState(() {
-   allVerses = content.split("\n");
        });
   }
 }

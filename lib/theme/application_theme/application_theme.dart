@@ -51,7 +51,8 @@ class ApplicationTheme {
       bodySmall: GoogleFonts.elMessiri(
           fontWeight: FontWeight.normal,
           fontSize: 20,
-          color: Colors.black
+          color: Colors.black,
+          height: 2,
       )
     )
   );

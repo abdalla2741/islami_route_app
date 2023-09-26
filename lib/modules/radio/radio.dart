@@ -19,9 +19,9 @@ class Radioo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.skip_previous , color: theme.primaryColor,size: 50,),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
             Icon(Icons.play_arrow , color: theme.primaryColor,size: 50),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
             Icon(Icons.skip_next , color: theme.primaryColor,size: 50,)
           ],
         )

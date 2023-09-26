@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_route_app/modules/quran/quran_details.dart';
 import 'package:islami_route_app/modules/quran/quran_item.dart';
 
+
 class Quran extends StatelessWidget {
    Quran({super.key});
   List<String> suraNames = [

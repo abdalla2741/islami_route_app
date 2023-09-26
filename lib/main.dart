@@ -4,6 +4,7 @@ import 'package:islami_route_app/modules/quran/quran_details.dart';
 import 'package:islami_route_app/splash_screen/splash_screen.dart';
 import 'package:islami_route_app/theme/application_theme/application_theme.dart';
 import 'layout/home_layout/home_layout.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ApplicationTheme.lightTheme,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      locale: Locale("en"),
+      supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.routeName,
       routes: {

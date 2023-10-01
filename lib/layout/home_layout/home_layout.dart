@@ -5,6 +5,9 @@ import 'package:islami_route_app/modules/radio/radio.dart';
 import 'package:islami_route_app/modules/sebha/sebha.dart';
 import 'package:islami_route_app/modules/settings/settings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_route_app/provider/app_provider.dart';
+import 'package:islami_route_app/theme/application_theme/application_theme.dart';
+import 'package:provider/provider.dart';
 
 
 class HomeLayout extends StatefulWidget {
@@ -28,12 +31,13 @@ class _HomeLayoutState extends State<HomeLayout> {
 
   @override
   Widget build(BuildContext context) {
+    var appProvider = Provider.of<AppProvider>(context);
     var mediaQuery = MediaQuery.of(context).size;
     return Container(
       width:mediaQuery.width,
       height: mediaQuery.height,
-      decoration: const BoxDecoration(
-        image: DecorationImage(image: AssetImage("assets/images/background.png") , fit: BoxFit.fill)
+      decoration:  BoxDecoration(
+        image: DecorationImage(image: AssetImage(appProvider.backgroundImagePath()) , fit: BoxFit.fill)
       ),
       child: Scaffold(
         appBar:AppBar(
@@ -44,12 +48,11 @@ class _HomeLayoutState extends State<HomeLayout> {
           onTap: (int index) {
             selectedIndex = index;
             setState(() {
-
             });
           },
           currentIndex: selectedIndex,
           items: [
-            BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/moshaf_blue.png")) ,label:  AppLocalizations.of(context)!.quran),
+            BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/moshaf_blue.png")) ,label:  AppLocalizations.of(context)!.quran , ),
             BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/sebha.png")) , label: AppLocalizations.of(context)!.sebha),
             BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/ahadeth.png")) , label: AppLocalizations.of(context)!.hadeth),
             BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/radio.png")) , label: AppLocalizations.of(context)!.radio),

@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:islami_route_app/modules/settings/widget/language_buttom_sheet_widget.dart';
 import 'package:islami_route_app/modules/settings/widget/settings_item.dart';
 import 'package:islami_route_app/modules/settings/widget/theme_buttom_sheet_widget.dart';
+import 'package:islami_route_app/provider/app_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -15,24 +18,26 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
+    var locale = AppLocalizations.of(context)!;
+    var appProvider = Provider.of<AppProvider>(context);
     var theme = Theme.of(context);
     var mediaQuery = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12 , vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20 , vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SettingsItem(
-              barTitleName: "Language" ,
-              barOptionName: "English" ,
+              barTitleName: locale.language ,
+              barOptionName: appProvider.currentLocale == "en"? "English" : locale.arabic  ,
               onOptionTap: () {
                 showLanguageButtonSheeet(context);
               }
           ),
-          SizedBox(height: 40,),
+          const SizedBox(height: 40,),
           SettingsItem(
-              barTitleName: "Theme mode" ,
-              barOptionName: "Light mode",
+              barTitleName: locale.theme_mode,
+              barOptionName: appProvider.currentTheme == ThemeMode.dark? locale.dark :locale.light,
             onOptionTap: (){
               showThemeButtonSheeet(context);
             }
@@ -70,12 +75,12 @@ class _SettingsState extends State<Settings> {
   }
 
   void showLanguageButtonSheeet(context) {
-    showModalBottomSheet(context: context, builder: (context) =>LanguageButtomSheetWidget() ,);
+    showModalBottomSheet(context: context, builder: (context) =>const LanguageButtomSheetWidget() ,);
 
   }
 
   void showThemeButtonSheeet(context) {
-    showModalBottomSheet(context: context, builder: (context) =>ThemeButtomSheetWidget(),);
+    showModalBottomSheet(context: context, builder: (context) =>const ThemeButtomSheetWidget(),);
 
   }
 }

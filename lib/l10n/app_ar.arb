@@ -4,6 +4,14 @@
   "sebha" : "سبحة",
   "hadeth" : "حديث",
   "radio" : "راديو",
-  "settings" : "إعدادات"
+  "settings" : "إعدادات",
+  "theme_mode" : "النمط",
+  "language" : "اللغة",
+  "dark" : "ليلي",
+  "light" : "نهاري",
+  "sura_name" : "اسم السورة",
+  "sura_number" : "رقم السورة",
+  "quran_radio" : "اذاعة القرأن الكريم",
+  "arabic" : "عربي"
 
 }

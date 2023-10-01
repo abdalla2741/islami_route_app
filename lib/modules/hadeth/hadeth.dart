@@ -21,14 +21,14 @@ class _HadethState extends State<Hadeth> {
       children: [
         Image.asset("assets/images/hadeth logo.png"),
         Divider(
-          color: theme.primaryColor,
+          color: theme.dividerColor,
           height: 5,
           thickness: 2.2,
 
         ),
         Text("الأحاديث" , textAlign: TextAlign.center , style: theme.textTheme.bodyMedium,),
         Divider(
-          color: theme.primaryColor,
+          color: theme.dividerColor,
           height: 10,
           thickness: 2.2,
 
@@ -39,7 +39,7 @@ class _HadethState extends State<Hadeth> {
             }, child: Text(allHadethContentList[index].title , style: theme.textTheme.bodyLarge, textAlign: TextAlign.center,)),
           itemCount: allHadethContentList.length,
           separatorBuilder: (context, index) =>  Divider(
-            color: theme.primaryColor,
+            color: theme.dividerColor,
             height: 5,
             thickness: 2.2,
           )

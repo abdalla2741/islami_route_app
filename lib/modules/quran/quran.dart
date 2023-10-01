@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_route_app/modules/quran/quran_details.dart';
 import 'package:islami_route_app/modules/quran/quran_item.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class Quran extends StatelessWidget {
@@ -124,29 +125,30 @@ class Quran extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var locale = AppLocalizations.of(context)!;
     return Column(
       children: [
         Image.asset("assets/images/quran logo.png"),
         Divider(
           thickness: 2.2,
-          color: theme.primaryColor,
+          color: theme.dividerColor,
           height: 5,
         ),
         Row(
           children: [
-            Expanded(child: Text("رقم السورة" , textAlign: TextAlign.center,style: theme.textTheme.bodyLarge,)),
+            Expanded(child: Text(locale.sura_name, textAlign: TextAlign.center,style: theme.textTheme.bodyLarge,)),
             Container(
               width: 2.2,
               height: 45,
-              color: theme.primaryColor,
+              color: theme.dividerColor,
             ),
-            Expanded(child: Text("اسم السورة" , textAlign: TextAlign.center,style: theme.textTheme.bodyLarge,)),
+            Expanded(child: Text(locale.sura_number , textAlign: TextAlign.center,style: theme.textTheme.bodyLarge,)),
 
           ],
         ),
         Divider(
           thickness: 2.2,
-          color: theme.primaryColor,
+          color: theme.dividerColor,
           height: 5,
         ),
         Expanded(

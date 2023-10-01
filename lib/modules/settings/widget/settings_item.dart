@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_route_app/provider/app_provider.dart';
+import 'package:islami_route_app/theme/application_theme/application_theme.dart';
+import 'package:provider/provider.dart';
 
 typedef SettingsOptionClicked = void Function ();
 
@@ -13,6 +16,7 @@ class SettingsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     var mediaQuery = MediaQuery.of(context).size;
+    var appProvider = Provider.of<AppProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -27,7 +31,7 @@ class SettingsItem extends StatelessWidget {
             width: mediaQuery.width,
             decoration: BoxDecoration(
               border:Border.all(
-                color: theme.primaryColor,
+                color: appProvider.isDark()? Color(0xFFFACC1D) : Color(0xFFB7935F),
                 width: 1.2,
               ),
               borderRadius: BorderRadius.circular(8),
@@ -36,7 +40,7 @@ class SettingsItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(barOptionName, style: theme.textTheme.bodyMedium),
-                const Icon(Icons.arrow_drop_down , size: 30,)
+                 Icon(Icons.arrow_drop_down , size: 30, color:appProvider.isDark()? Color(0xFFFACC1D) : Color(0xFFB7935F), )
               ],
             ),
           ),

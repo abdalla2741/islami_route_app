@@ -4,6 +4,13 @@
   "hadeth" : "Hadeth",
   "sebha" : "Sebha",
   "radio" : "Radio",
-  "settings" : "Settings"
-
+  "settings" : "Settings",
+  "theme_mode" : "Theme Mode",
+  "language" : "Language",
+  "dark" : "Dark",
+  "light" : "Light",
+  "sura_name" : "Sura Name",
+  "sura_number" : "Sura Number",
+  "quran_radio" : "Quran Radio",
+  "arabic" : "Arabic"
 }
